@@ -25,6 +25,20 @@ img {
      object-fit: cover;
 }
 
+.fade-block {
+  animation: fadeBlock 1.2s both;
+}
+
+@keyframes fadeBlock {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .fade-hight-text {
   animation: fadeHightTextTop 1.2s both;
 }
@@ -376,7 +390,7 @@ img {
 .banner-img {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 550px;
 }
 .banner-img .banner-img-background {
   position: absolute;
@@ -455,4 +469,163 @@ img {
 }
 .banner-img .banner-img-container .banner-img-container-h1 h3 .h3-text-color {
   color: #73c159;
+}
+
+.about-me-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 1rem;
+  background-color: #fff;
+}
+@media (max-width: 74.3125rem) {
+  .about-me-container {
+    padding: 1rem 1rem;
+  }
+}
+
+.about-me-container-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 43%;
+  height: 100%;
+  background-image: url(./img/background_pyrit.svg);
+}
+@media (max-width: 74.3125rem) {
+  .about-me-container-background {
+    width: 100%;
+    height: 600px;
+  }
+}
+
+.about-me-content-container {
+  position: relative;
+  width: 100%;
+  max-width: 1190px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+}
+@media (max-width: 74.3125rem) {
+  .about-me-content-container {
+    align-items: normal;
+  }
+}
+.about-me-content-container > * {
+  flex: 1;
+}
+@media (max-width: 74.3125rem) {
+  .about-me-content-container {
+    flex-direction: column;
+  }
+}
+
+.main-photo {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  background-image: url(./img/_about_me_photo.jpg);
+  background-position: top center;
+  background-size: cover;
+}
+
+.name-banner {
+  position: absolute;
+  right: -30px;
+  bottom: 40px;
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  padding: 0.1rem 1rem;
+  background-color: #116173;
+}
+.name-banner::before {
+  border-color: #116173 transparent transparent #116173;
+  border-style: solid;
+  border-width: 15px;
+  bottom: -30px;
+  content: "";
+  position: absolute;
+  right: 0;
+  z-index: 100;
+}
+.name-banner h2 {
+  margin: 1rem 0;
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  text-align: center;
+}
+
+.about-me-text-content h3,
+.about-me-text-content h4 {
+  margin: 0;
+}
+.about-me-text-content h3 {
+  padding: 1rem 1rem;
+  padding-bottom: 0;
+  font-weight: 300;
+  color: #242424;
+}
+.about-me-text-content h4 {
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  padding-left: 1rem;
+  line-height: 2rem;
+  color: #2a2929;
+}
+.about-me-text-content p {
+  padding: 0 1rem;
+  font-weight: 300;
+  color: #242424;
+}
+.about-me-text-content .hide-text {
+  height: 100%;
+  max-height: 0;
+}
+
+.about-me-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
+}
+
+.wrapper-content {
+  min-height: 350px;
+  overflow: hidden;
+}
+.wrapper-content p {
+  margin-top: 10px;
+}
+@media (max-width: 74.3125rem) {
+  .wrapper-content h3,
+  .wrapper-content h4,
+  .wrapper-content p {
+    padding: 0;
+  }
+}
+
+.wrapper-content-open {
+  grid-template-rows: 1fr;
+}
+
+.about-read-more {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Saira", sans-serif;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid #73c159;
+  color: #73c159;
+  background-color: transparent;
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.about-read-more:hover {
+  color: #116173;
+  border-color: #116173;
+  transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }/*# sourceMappingURL=index.css.map */

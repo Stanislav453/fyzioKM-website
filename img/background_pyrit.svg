@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+	<title>Nový projekt</title>
+	<defs>
+		<image  width="4" height="4" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAEBAMAAABb34NNAAAAAXNSR0IB2cksfwAAACdQTFRFc8JZc8FZc8FZdcBYc8FZc8FZc8FZc8FZc8JZdcJbc8FZc8FYdL9XrOne4gAAAA10Uk5TUOzmPe7/5ejcO+LbLBW9tP0AAAAUSURBVHicY2BUZnANYyiNYJi1BwALkALjqfz1eQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="6" y="6"/>
+</svg>
