@@ -32,11 +32,12 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach( entry => {
     if(entry.isIntersecting){
       document.querySelectorAll('.animated')[0].classList.add('fade-block');
+      document.querySelectorAll('.animated')[1].classList.add('fade-block');
     }
   } )
 })
 
-observer.observe(document.querySelector('main'))
+observer.observe(document.querySelector('.about-me-content-container'));
 
 const main = document.querySelector('main')
 console.log(main)
