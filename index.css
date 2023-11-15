@@ -656,6 +656,7 @@ img {
 @media (max-width: 74.3125rem) {
   .price-list-container {
     padding: 0;
+    padding-bottom: 1rem;
   }
 }
 

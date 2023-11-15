@@ -10,8 +10,6 @@ let aboutReadMore = document.getElementsByClassName('about-read-more')[0];
 let aboutReadMoreWrapper =
   document.getElementsByClassName('about-me-wrapper')[0];
 
-// console.log(aboutReadMoreWrapper)
-
 navIcon1.addEventListener('click', function () {
   navIcon1.classList.toggle('open');
   headerNavShow.classList.toggle('header-nav-show');
