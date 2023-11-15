@@ -629,4 +629,106 @@ img {
   color: #116173;
   border-color: #116173;
   transition: border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#price-list {
+  width: 100%;
+  height: auto;
+  padding: 0 1rem;
+  background-color: #f9fafa;
+  color: #000;
+}
+
+.price-list-header {
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 900;
+  color: #116173;
+}
+
+.price-list-container {
+  width: 100%;
+  max-width: 1190px;
+  height: auto;
+  padding: 1rem;
+  margin: 0 auto;
+}
+@media (max-width: 74.3125rem) {
+  .price-list-container {
+    padding: 0;
+  }
+}
+
+.price-list-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 74.3125rem) {
+  .price-list-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 46.4375rem) {
+  .price-list-content {
+    grid-template-columns: 1fr;
+  }
+}
+.price-list-content .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid #b6b3b3;
+}
+.price-list-content .box .price-list-background {
+  position: absolute;
+  top: -170px;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 300px;
+  background-color: #116173;
+  transform: skewY(-20deg);
+}
+.price-list-content .box h3 {
+  position: relative;
+  z-index: 101;
+  padding: 0 0.5rem;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0px 0px 3px #000;
+}
+.price-list-content .box .price-box {
+  position: relative;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: border-box;
+}
+.price-list-content .box .price-box .price-box-container {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+.price-list-content .box .price-box .price-box-container p, .price-list-content .box .price-box .price-box-container h4 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.price-list-content .box .price-box .price-box-container h4 {
+  font-weight: 600;
+}
+.price-list-content .box .price-box .price-box-container p {
+  font-weight: 300;
 }/*# sourceMappingURL=index.css.map */
