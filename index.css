@@ -40,6 +40,36 @@ img {
     transform: translateY(0);
   }
 }
+.fade-left {
+  animation: fadeLeft 1.2s both;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.fade-right {
+  animation: fadeRight 1.2s both;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .fade-hight-text {
   animation: fadeHightTextTop 1.2s both;
 }
@@ -273,6 +303,7 @@ img {
   color: #116173;
   background-color: #73c159;
   border: none;
+  cursor: pointer;
 }
 @media (max-width: 74.3125rem) {
   .header-contact-container {
@@ -532,6 +563,7 @@ img {
   background-image: url(./img/_about_me_photo.jpg);
   background-position: top center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .name-banner {
@@ -639,11 +671,13 @@ img {
   color: #000;
 }
 
-.price-list-header {
+.price-list-header h2 {
   text-align: center;
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 10vw, 5rem);
   font-weight: 900;
   color: #116173;
+  margin: 0;
+  padding: 0 1rem;
 }
 
 .price-list-container {
@@ -722,7 +756,8 @@ img {
   border-radius: 50%;
   border: 1px solid #000;
 }
-.price-list-content .box .price-box .price-box-container p, .price-list-content .box .price-box .price-box-container h4 {
+.price-list-content .box .price-box .price-box-container p,
+.price-list-content .box .price-box .price-box-container h4 {
   text-align: center;
   padding: 0;
   margin: 0;
@@ -732,4 +767,150 @@ img {
 }
 .price-list-content .box .price-box .price-box-container p {
   font-weight: 300;
+}
+
+.curs-section {
+  padding: 1rem 0;
+  background-color: #fff;
+}
+.curs-section > :nth-of-type(even) > .content-wrap {
+  margin-left: auto;
+  flex-direction: row;
+}
+.curs-section > :nth-of-type(even) > .content-wrap .content-line {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+@media (max-width: 62.5rem) {
+  .curs-section > :nth-of-type(even) > .content-wrap {
+    margin-left: 0;
+  }
+}
+
+.curs-header h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  color: #116173;
+  text-align: center;
+}
+
+.curs-container {
+  width: 100%;
+  max-width: 1190px;
+  height: auto;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 50.64%;
+}
+@media (max-width: 62.5rem) {
+  .content-wrap {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.content-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 1rem;
+}
+@media (max-width: 62.5rem) {
+  .content-line {
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+}
+.content-line i {
+  color: #73c159;
+}
+.content-line .line {
+  width: 5px;
+  height: 90%;
+  background-color: #73c159;
+  border-radius: 1rem;
+}
+
+.curs-content-item {
+  width: 100%;
+}
+
+.curs-content-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s;
+}
+
+.curs-content-container-is-open {
+  grid-template-rows: 1fr;
+  transition: all 0.3s;
+}
+
+.open-wrapper-b {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  padding: 0;
+  background-color: #73c159;
+  border: 1px solid #6f6d6d;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.open-wrapper-b:hover {
+  background-color: #59a83f;
+  transition: background-color 0.3s ease-in-out;
+}
+.open-wrapper-b h4,
+.open-wrapper-b i {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+.open-wrapper-b h4 {
+  padding-left: 0.5rem;
+}
+.open-wrapper-b i {
+  background-color: #116173;
+  padding: 1rem;
+}
+
+.show-ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafa;
+  overflow: hidden;
+}
+.show-ul > :nth-of-type(1) {
+  padding-top: 1rem;
+}
+.show-ul > :last-of-type {
+  padding-bottom: 1rem;
+}
+.show-ul li {
+  list-style-type: none;
+  font-size: 1.2rem;
+  color: #000;
+  line-height: 1.5rem;
+  padding: 0 1rem;
+}
+
+.bxs-chevrons-down {
+  transform: rotate(0);
+  transition: transform 0.3s ease;
+}
+
+.icon-move {
+  transform: rotate(0.5turn);
+  transition: transform 0.3s ease;
 }/*# sourceMappingURL=index.css.map */
