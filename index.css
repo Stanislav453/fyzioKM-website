@@ -795,11 +795,15 @@ img {
 }
 
 .curs-container {
+  position: relative;
+  top: -50px;
   width: 100%;
   max-width: 1190px;
   height: auto;
   margin: 0 auto;
   padding: 1rem;
+  opacity: 0;
+  transition: top 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .content-wrap {
@@ -913,4 +917,10 @@ img {
 .icon-move {
   transform: rotate(0.5turn);
   transition: transform 0.3s ease;
+}
+
+.fade-bottom {
+  top: 0;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }/*# sourceMappingURL=index.css.map */
