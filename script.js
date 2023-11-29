@@ -71,12 +71,12 @@ priceList.observe(document.querySelector('.price-list-content'));
   'use strict';
 
   // define variables
-  var items = document.querySelectorAll('.curs-container');
+  let items = document.querySelectorAll('.curs-container');
 
   // check if an element is in viewport
   // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
   function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
+    let rect = el.getBoundingClientRect();
     return (
       rect.top >= 0 &&
       rect.left >= 0 &&
@@ -87,7 +87,7 @@ priceList.observe(document.querySelector('.price-list-content'));
   }
 
   function callbackFunc() {
-    for (var i = 0; i < items.length; i++) {
+    for (let i = 0; i < items.length; i++) {
       if (isElementInViewport(items[i])) {
         items[i].classList.add('fade-bottom');
       }
