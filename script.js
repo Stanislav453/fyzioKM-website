@@ -122,11 +122,11 @@ priceList.observe(document.querySelector('.price-list-content'));
         serviceContLeftUlLi[i].classList.add('fade-bottom');
       }
     }
-  }
 
-  for (let i = 0; i < serviceContRightUlLi.length; i++) {
-    if (isElementInViewport(serviceContRightUlLi[i])) {
-      serviceContRightUlLi[i].classList.add('fade-bottom');
+    for (let i = 0; i < serviceContRightUlLi.length; i++) {
+      if (isElementInViewport(serviceContRightUlLi[i])) {
+        serviceContRightUlLi[i].classList.add('fade-bottom');
+      }
     }
   }
 
