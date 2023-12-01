@@ -12,6 +12,31 @@ let aboutReadMoreWrapper =
 let cursContentContainer = document.querySelectorAll('.curs-content-container');
 let openWrapperB = document.querySelectorAll('.open-wrapper-b');
 let bxsChevronsDown = document.querySelectorAll('.bxs-chevrons-down');
+let serviceContainerP = document.querySelectorAll(
+  '.service-cont-left > ul > li > .service-container-p'
+);
+let bxsDownArrow = document.querySelectorAll('.bxs-down-arrow');
+let serviceLiHeader = document.querySelectorAll('.service-li-header');
+let serviceContainerPright = document.querySelectorAll(
+  '.service-cont-right > ul > li > .service-container-p'
+);
+let serviceLiHeaderRight = document.querySelectorAll(
+  '.service-cont-right > ul > li > .service-li-header'
+);
+
+let bxsDownArrowRight = document.querySelectorAll(
+  ' .service-cont-right > ul > li > .service-li-header > button > .bxs-down-arrow'
+);
+
+let serviceContLeftUlLi = document.querySelectorAll(
+  '.service-cont-left > ul > .section-list'
+);
+
+let serviceContRightUlLi = document.querySelectorAll(
+  '.service-cont-right > ul > .section-list'
+);
+
+console.log(serviceContRightUlLi);
 
 ////////////////////////CODE
 navIcon1.addEventListener('click', function () {
@@ -66,9 +91,8 @@ const priceList = new IntersectionObserver((item) => {
 priceList.observe(document.querySelector('.price-list-content'));
 
 // TIMELINE
-
 (function () {
-  'use strict';
+  ('use strict');
 
   // define variables
   let items = document.querySelectorAll('.curs-container');
@@ -92,7 +116,21 @@ priceList.observe(document.querySelector('.price-list-content'));
         items[i].classList.add('fade-bottom');
       }
     }
+
+    for (let i = 0; i < serviceContLeftUlLi.length; i++) {
+      if (isElementInViewport(serviceContLeftUlLi[i])) {
+        serviceContLeftUlLi[i].classList.add('fade-bottom');
+      }
+    }
   }
+
+  for (let i = 0; i < serviceContRightUlLi.length; i++) {
+    if (isElementInViewport(serviceContRightUlLi[i])) {
+      serviceContRightUlLi[i].classList.add('fade-bottom');
+    }
+  }
+
+  //serviceLiHeader
 
   // listen for events
   window.addEventListener('load', callbackFunc);
@@ -106,6 +144,28 @@ openWrapperB.forEach((item, buttonId) =>
       if (buttonId === itemId) {
         item.classList.toggle('curs-content-container-is-open');
         bxsChevronsDown[itemId].classList.toggle('icon-move');
+      }
+    });
+  })
+);
+
+serviceLiHeader.forEach((item, buttonId) =>
+  item.addEventListener('click', () => {
+    serviceContainerP.forEach((item, itemId) => {
+      if (buttonId === itemId) {
+        item.classList.toggle('service-container-p-show');
+        bxsDownArrow[itemId].classList.toggle('icon-move');
+      }
+    });
+  })
+);
+
+serviceLiHeaderRight.forEach((item, buttonId) =>
+  item.addEventListener('click', () => {
+    serviceContainerPright.forEach((item, itemId) => {
+      if (buttonId === itemId) {
+        item.classList.toggle('service-container-p-show');
+        bxsDownArrowRight[itemId].classList.toggle('icon-move');
       }
     });
   })
