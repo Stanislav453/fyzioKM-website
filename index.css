@@ -33,7 +33,6 @@ img {
 
 .fade-block {
   animation: fadeBlock 1.2s both;
-  animation-delay: 0.5s;
 }
 
 @keyframes fadeBlock {

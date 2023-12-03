@@ -57,8 +57,6 @@ aboutReadMore.addEventListener('click', () => {
   aboutReadMoreWrapper.classList.toggle('wrapper-content-open');
 });
 
-
-
 // TIMELINE
 (function () {
   ('use strict');
@@ -91,7 +89,6 @@ aboutReadMore.addEventListener('click', () => {
     box.forEach((item, key) => {
       if (isElementInViewport(item)) {
         item.classList.add('fade-block');
-        item.style.animationDelay = '.7s';
       }
     });
 
@@ -112,7 +109,6 @@ aboutReadMore.addEventListener('click', () => {
         serviceContRightUlLi[i].classList.add('fade-bottom');
       }
     }
-
   }
 
   //serviceLiHeader
