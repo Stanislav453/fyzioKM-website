@@ -727,6 +727,7 @@ img {
   justify-content: center;
   gap: 1rem;
   position: relative;
+  opacity: 0;
   padding: 1rem;
   overflow: hidden;
   background-color: #fff;
