@@ -47,8 +47,7 @@ img {
   }
 }
 .fade-left {
-  animation: fadeLeft 1.2s both;
-  animation-delay: 0.2s;
+  animation: fadeLeft 0.8s both;
 }
 
 @keyframes fadeLeft {
@@ -62,8 +61,7 @@ img {
   }
 }
 .fade-right {
-  animation: fadeRight 1.2s both;
-  animation-delay: 0.3s;
+  animation: fadeRight 0.8s both;
 }
 
 @keyframes fadeRight {
@@ -537,6 +535,10 @@ img {
   }
 }
 
+.about-me-gallery {
+  opacity: 0;
+}
+
 .about-me-content-container {
   position: relative;
   width: 100%;
@@ -598,6 +600,9 @@ img {
   text-align: center;
 }
 
+.about-me-text-content {
+  opacity: 0;
+}
 .about-me-text-content h3,
 .about-me-text-content h4 {
   margin: 0;

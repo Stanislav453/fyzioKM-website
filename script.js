@@ -36,7 +36,8 @@ let serviceContRightUlLi = document.querySelectorAll(
   '.service-cont-right > ul > .section-list'
 );
 
-console.log(serviceContRightUlLi);
+let aboutMeBlock = document.querySelectorAll('.animated');
+let box = document.querySelectorAll('.box');
 
 ////////////////////////CODE
 navIcon1.addEventListener('click', function () {
@@ -56,39 +57,7 @@ aboutReadMore.addEventListener('click', () => {
   aboutReadMoreWrapper.classList.toggle('wrapper-content-open');
 });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.animated')[0].classList.add('fade-left');
-      document.querySelectorAll('.animated')[1].classList.add('fade-right');
-    }
-  });
-});
 
-observer.observe(document.querySelector('.about-me-content-container'));
-
-const priceList = new IntersectionObserver((item) => {
-  item.forEach((entry) => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.box')[0].classList.add('fade-block');
-      document.querySelectorAll('.box')[1].classList.add('fade-block');
-      document.querySelectorAll('.box')[1].style.animationDelay = '.7s';
-      document.querySelectorAll('.box')[2].classList.add('fade-block');
-      document.querySelectorAll('.box')[2].style.animationDelay = '.9s';
-      document.querySelectorAll('.box')[3].classList.add('fade-block');
-      document.querySelectorAll('.box')[3].style.animationDelay = '1.1s';
-      document.querySelectorAll('.box')[4].classList.add('fade-block');
-      document.querySelectorAll('.box')[4].style.animationDelay = '1.3s';
-      document.querySelectorAll('.box')[5].classList.add('fade-block');
-      document.querySelectorAll('.box')[5].style.animationDelay = '1.5s';
-      document.querySelectorAll('.box')[6].classList.add('fade-block');
-      document.querySelectorAll('.box')[6].style.animationDelay = '1.7s';
-      document.querySelectorAll('.box')[7].classList.add('fade-block');
-    }
-  });
-});
-
-priceList.observe(document.querySelector('.price-list-content'));
 
 // TIMELINE
 (function () {
@@ -111,6 +80,21 @@ priceList.observe(document.querySelector('.price-list-content'));
   }
 
   function callbackFunc() {
+    if (isElementInViewport(aboutMeBlock[0])) {
+      aboutMeBlock[0].classList.add('fade-left');
+    }
+
+    if (isElementInViewport(aboutMeBlock[1])) {
+      aboutMeBlock[1].classList.add('fade-right');
+    }
+
+    box.forEach((item, key) => {
+      if (isElementInViewport(item)) {
+        item.classList.add('fade-block');
+        item.style.animationDelay = '.7s';
+      }
+    });
+
     for (let i = 0; i < items.length; i++) {
       if (isElementInViewport(items[i])) {
         items[i].classList.add('fade-bottom');
@@ -128,6 +112,7 @@ priceList.observe(document.querySelector('.price-list-content'));
         serviceContRightUlLi[i].classList.add('fade-bottom');
       }
     }
+
   }
 
   //serviceLiHeader
