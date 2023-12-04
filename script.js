@@ -38,6 +38,36 @@ let serviceContRightUlLi = document.querySelectorAll(
 
 let aboutMeBlock = document.querySelectorAll('.animated');
 let box = document.querySelectorAll('.box');
+let methodUl = document.querySelectorAll('.method-ul li');
+let methodCount = document.querySelector('.method-count');
+    let animationMethodCountExecuted = false;
+
+    const animationMethodCount = () => {
+      const interval = setInterval(() => {
+        ++methodCount.innerText;
+
+        if (methodCount.innerText >= methodUl.length) {
+          clearInterval(interval);
+          animationMethodCountExecuted = true;
+        }
+      }, 10);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !animationMethodCountExecuted) {
+            animationMethodCount();
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    const counters = document.querySelectorAll('.method-count');
+    counters.forEach((c) => observer.observe(c));
 
 ////////////////////////CODE
 navIcon1.addEventListener('click', function () {
@@ -57,40 +87,52 @@ aboutReadMore.addEventListener('click', () => {
   aboutReadMoreWrapper.classList.toggle('wrapper-content-open');
 });
 
-// TIMELINE
-(function () {
-  ('use strict');
+// const animationMethodCount = () => {
+//   const interval = setInterval(() => {
+//     ++methodCount.innerText;
 
-  // define variables
+//     if (methodCount.innerText >= methodUl.length) {
+//       clearInterval(interval);
+//       window.animationMethodCount  = true;
+//     }
+//   }, 10);
+// };
+
+
+(function () {
   let items = document.querySelectorAll('.curs-container');
 
-  // check if an element is in viewport
-  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-  function isElementInViewport(el) {
+  function isElementInViewport(el, once = false) {
     let rect = el.getBoundingClientRect();
-    return (
+    const isVisible =
       rect.top >= 0 &&
       rect.left >= 0 &&
       rect.bottom <=
         (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+
+    if (once && isVisible) {
+      el.classList.add('fade-in'); 
+    }
+
+    return isVisible;
   }
 
   function callbackFunc() {
-    if (isElementInViewport(aboutMeBlock[0])) {
+    if (isElementInViewport(aboutMeBlock[0], true)) {
       aboutMeBlock[0].classList.add('fade-left');
     }
 
-    if (isElementInViewport(aboutMeBlock[1])) {
+    if (isElementInViewport(aboutMeBlock[1], true)) {
       aboutMeBlock[1].classList.add('fade-right');
     }
 
-    box.forEach((item, key) => {
-      if (isElementInViewport(item)) {
+    box.forEach((item) => {
+      if (isElementInViewport(item, true)) {
         item.classList.add('fade-block');
       }
     });
+
 
     for (let i = 0; i < items.length; i++) {
       if (isElementInViewport(items[i])) {
@@ -99,21 +141,18 @@ aboutReadMore.addEventListener('click', () => {
     }
 
     for (let i = 0; i < serviceContLeftUlLi.length; i++) {
-      if (isElementInViewport(serviceContLeftUlLi[i])) {
+      if ((isElementInViewport(serviceContLeftUlLi[i]), true)) {
         serviceContLeftUlLi[i].classList.add('fade-bottom');
       }
     }
 
     for (let i = 0; i < serviceContRightUlLi.length; i++) {
-      if (isElementInViewport(serviceContRightUlLi[i])) {
+      if (isElementInViewport(serviceContRightUlLi[i], true)) {
         serviceContRightUlLi[i].classList.add('fade-bottom');
       }
     }
   }
 
-  //serviceLiHeader
-
-  // listen for events
   window.addEventListener('load', callbackFunc);
   window.addEventListener('resize', callbackFunc);
   window.addEventListener('scroll', callbackFunc);
