@@ -50,7 +50,7 @@ let methodCount = document.querySelector('.method-count');
           clearInterval(interval);
           animationMethodCountExecuted = true;
         }
-      }, 10);
+      }, 30);
     };
 
     const observer = new IntersectionObserver(
@@ -86,18 +86,6 @@ headerPhoneCLoseButton.addEventListener('click', function () {
 aboutReadMore.addEventListener('click', () => {
   aboutReadMoreWrapper.classList.toggle('wrapper-content-open');
 });
-
-// const animationMethodCount = () => {
-//   const interval = setInterval(() => {
-//     ++methodCount.innerText;
-
-//     if (methodCount.innerText >= methodUl.length) {
-//       clearInterval(interval);
-//       window.animationMethodCount  = true;
-//     }
-//   }, 10);
-// };
-
 
 (function () {
   let items = document.querySelectorAll('.curs-container');
