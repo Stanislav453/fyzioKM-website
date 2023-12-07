@@ -256,7 +256,7 @@ img {
 @media (max-width: 74.3125rem) {
   .header-nav {
     position: absolute;
-    top: -500px;
+    top: -600px;
     left: 0;
     z-index: 100;
     width: 100%;
