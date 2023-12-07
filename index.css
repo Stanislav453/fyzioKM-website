@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Saira", sans-serif;
   font-weight: 300;
@@ -29,6 +33,28 @@ img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+/*====== Back to home button ================= */
+.back_to_home {
+  position: fixed;
+  bottom: 1rem;
+  right: 0.5rem;
+  opacity: 0;
+  font-size: clamp(3rem, 5vw, 4rem);
+  background-color: #116173;
+  z-index: 100;
+  border: 1px solid #fff;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.back_to_home:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+.back_to_home a {
+  padding: 1rem;
+  color: #73c159;
 }
 
 .fade-block {
@@ -1035,12 +1061,6 @@ img {
   transition: transform 0.3s ease;
 }
 
-.fade-bottom {
-  top: 0 !important;
-  opacity: 1 !important;
-  transition: all 0.5s ease-in-out;
-}
-
 .method {
   padding-bottom: 2rem;
 }
@@ -1237,4 +1257,10 @@ footer {
   height: 100%;
   max-width: 100px;
   max-height: 100px;
+}
+
+.fade-bottom {
+  top: 0 !important;
+  opacity: 1 !important;
+  transition: all 0.5s ease-in-out;
 }/*# sourceMappingURL=index.css.map */

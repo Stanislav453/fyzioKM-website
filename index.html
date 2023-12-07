@@ -19,7 +19,7 @@
     />
   </head>
   <body>
-    <header>
+    <header id='home'>
       <div class="info-top">
         <div class="info-top-container">
           <div class="info-top-left">
@@ -108,11 +108,12 @@
           <nav class="header-nav">
             <ul>
               <li><a href="#about">O mne</a></li>
-              <li><a href="#">Cenník</a></li>
-              <li><a href="#">Služby</a></li>
-              <li><a href="#">Metódy</a></li>
-              <li><a href="#">Kontakt</a></li>
-              <li><a href="#">Fotogaléria</a></li>
+              <li><a href="#price-list">Cenník</a></li>
+              <li><a href="#curs">Kurzy</a></li>
+              <li><a href="#services">Služby</a></li>
+              <li><a href="#method">Metódy</a></li>
+              <li><a href="#contact">Kontakt</a></li>
+              <li><a href="#photogallery">Fotogaléria</a></li>
               <li class="header-nav-li-media">
                 <a href="https://www.facebook.com/fyziokm"
                   ><i class="bx bxl-facebook"></i
@@ -241,7 +242,7 @@
               <h3>Vstupné fyzioterapeutické vyšetrenie a terapia</h3>
               <div class="price-box">
                 <div class="price-box-container">
-                  <h4>45€</h4>
+                  <h4 class='value' data-value='45'>0</h4>
                   <p>60min.</p>
                 </div>
               </div>
@@ -251,7 +252,7 @@
               <h3>Konzultácia s fyzioterapeutom</h3>
               <div class="price-box">
                 <div class="price-box-container">
-                  <h4>15€</h4>
+                  <h4  class='value' data-value="15">0</h4>
                   <p>15min.</p>
                 </div>
               </div>
@@ -261,15 +262,15 @@
               <h3>Fyzioterapia/Rehabilitácia</h3>
               <div class="price-box">
                 <div class="price-box-container">
-                  <h4>30€</h4>
+                  <h4  class='value' data-value="30" >0</h4>
                   <p>25min.</p>
                 </div>
                 <div class="price-box-container">
-                  <h4>45€</h4>
+                  <h4  class='value' data-value="45" >0</h4>
                   <p>25min.</p>
                 </div>
                 <div class="price-box-container">
-                  <h4>55€</h4>
+                  <h4  class='value' data-value='55' >0</h4>
                   <p>25min.</p>
                 </div>
               </div>
@@ -279,7 +280,7 @@
               <h3>Fyzioterapia/Rehabilitácia</h3>
               <div class="price-box">
                 <div class="price-box-container">
-                  <h4>200€</h4>
+                  <h4  class='value' data-value="200" >0</h4>
                   <p>5x60min.</p>
                 </div>
               </div>
@@ -289,7 +290,7 @@
               <h3>Manuálna lymfodrenáž</h3>
               <div class="price-box">
                 <div class="price-box-container">
-                  <h4>30</h4>
+                  <h4  class='value' data-value="30" >0</h4>
                   <p>30min.</p>
                 </div>
               </div>
@@ -301,7 +302,7 @@
               </h3>
               <div class="price-box">
                 <div class="price-box-container">
-                  <h4>8</h4>
+                  <h4  class='value' data-value="8" >0</h4>
                   <p>30min.</p>
                 </div>
               </div>
@@ -310,13 +311,13 @@
               <div class="price-list-background"></div>
               <h3>Kinesiotaping (samostatne bez terapie)</h3>
               <div class="price-box">
-                <div class="price-box-container"><h4>10€</h4></div>
+                <div class="price-box-container"><h4  class='value' data-value="10" >0</h4></div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="curs-section">
+      <section id="curs" class="curs-section">
         <header class="curs-header"><h2>Kurzy</h2></header>
         <article class="curs-container">
           <div class="content-wrap">
@@ -612,7 +613,7 @@
           </div>
         </article>
       </section>
-      <section class="container-service">
+      <section id="services" class="container-service">
         <header class="servicer-header"><h2>Služby</h2></header>
         <div class="container">
           <div class="container-services-cont">
@@ -747,7 +748,7 @@
           </div>
         </div>
       </section>
-      <section class="method">
+      <section id="method" class="method">
         <header class="method-header">
           <h2 class="method-hight-text">
             Metódy <span class="method-count">0</span>
@@ -789,7 +790,7 @@
           </article>
         </div>
       </section>
-      <section class="info-container">
+      <section id="contact" class="info-container">
         <article class="container">
           <ul class="info-cont-container">
             <li class="info-list">
@@ -895,6 +896,9 @@
         </svg>
       </div>
     </footer>
+    <div class="back_to_home">
+      <a href="#home"><i class='bx bx-home-alt'></i></a>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>

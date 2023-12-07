@@ -43,33 +43,56 @@ let methodUl = document.querySelectorAll('.method-ul');
 let methodCount = document.querySelector('.method-count');
 let animationMethodCountExecuted = false;
 
+const animationMethodCount = () => {
+  const interval = setInterval(() => {
+    ++methodCount.innerText;
 
-    const animationMethodCount = () => {
-      const interval = setInterval(() => {
-        ++methodCount.innerText;
+    if (methodCount.innerText >= methodUlList.length) {
+      clearInterval(interval);
+      animationMethodCountExecuted = true;
+    }
+  }, 30);
+};
 
-        if (methodCount.innerText >= methodUlList.length) {
-          clearInterval(interval);
-          animationMethodCountExecuted = true;
-        }
-      }, 30);
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !animationMethodCountExecuted) {
-            animationMethodCount();
-          }
-        });
-      },
-      {
-        threshold: 0.5,
+const observerOne = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !animationMethodCountExecuted) {
+        animationMethodCount();
       }
-    );
+    });
+  },
+  {
+    threshold: 0.5,
+  }
+);
 
-    const counters = document.querySelectorAll('.method-count');
-    counters.forEach((c) => observer.observe(c));
+const countersOne = document.querySelectorAll('.method-count');
+countersOne.forEach((c) => observerOne.observe(c));
+
+const counters = document.querySelectorAll('.value'),
+  speed = 400,
+  observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => entry.isIntersecting && animate(entry.target)),
+    {
+      threshold: 1,
+    }
+  ),
+  animate = (counter) => {
+    const value = +counter.dataset.value,
+      data = +counter.innerText,
+      time = value / speed;
+    if (data < value) {
+      counter.innerText = Math.ceil(data + time);
+      setTimeout(() => animate(counter), 25);
+    } else {
+      counter.innerText = value + '€';
+    }
+  };
+
+// attach the counters to the observer
+counters.forEach((c) => observer.observe(c));
 
 ////////////////////////CODE
 navIcon1.addEventListener('click', function () {
@@ -102,7 +125,7 @@ aboutReadMore.addEventListener('click', () => {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth);
 
     if (once && isVisible) {
-      el.classList.add('fade-in'); 
+      el.classList.add('fade-in');
     }
 
     return isVisible;
@@ -123,28 +146,27 @@ aboutReadMore.addEventListener('click', () => {
       }
     });
 
-    methodUl.forEach(item => {
-      if(isElementInViewport(item, true)) {
-        item.classList.add('fade-block')
+    methodUl.forEach((item) => {
+      if (isElementInViewport(item, true)) {
+        item.classList.add('fade-block');
       }
-    })
-
+    });
 
     for (let i = 0; i < items.length; i++) {
-      if (isElementInViewport(items[i])) {
+      if (isElementInViewport(items[i], true)) {
         items[i].classList.add('fade-bottom');
-      }
-    }
-
-    for (let i = 0; i < serviceContLeftUlLi.length; i++) {
-      if ((isElementInViewport(serviceContLeftUlLi[i]), true)) {
-        serviceContLeftUlLi[i].classList.add('fade-bottom');
       }
     }
 
     for (let i = 0; i < serviceContRightUlLi.length; i++) {
       if (isElementInViewport(serviceContRightUlLi[i], true)) {
         serviceContRightUlLi[i].classList.add('fade-bottom');
+      }
+    }
+
+    for (let i = 0; i < serviceContLeftUlLi.length; i++) {
+      if (isElementInViewport(serviceContLeftUlLi[i], true)) {
+        serviceContLeftUlLi[i].classList.add('fade-bottom');
       }
     }
   }
@@ -186,3 +208,20 @@ serviceLiHeaderRight.forEach((item, buttonId) =>
     });
   })
 );
+
+// == BACK TO HOME BUTTON ===================================
+
+let backToHome = document.querySelector('.back_to_home');
+let backToHomeI = document.querySelector('.back_to_home i');
+
+console.log(backToHomeI);
+
+window.addEventListener('scroll', function () {
+  let scroll = this.window.scrollY;
+
+  if (Math.ceil(scroll) > 400) {
+    backToHome.style.opacity = 1;
+  } else {
+    backToHome.style.opacity = 0;
+  }
+});
