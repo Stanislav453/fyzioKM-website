@@ -38,15 +38,17 @@ let serviceContRightUlLi = document.querySelectorAll(
 
 let aboutMeBlock = document.querySelectorAll('.animated');
 let box = document.querySelectorAll('.box');
-let methodUl = document.querySelectorAll('.method-ul li');
+let methodUlList = document.querySelectorAll('.method-ul li');
+let methodUl = document.querySelectorAll('.method-ul');
 let methodCount = document.querySelector('.method-count');
-    let animationMethodCountExecuted = false;
+let animationMethodCountExecuted = false;
+
 
     const animationMethodCount = () => {
       const interval = setInterval(() => {
         ++methodCount.innerText;
 
-        if (methodCount.innerText >= methodUl.length) {
+        if (methodCount.innerText >= methodUlList.length) {
           clearInterval(interval);
           animationMethodCountExecuted = true;
         }
@@ -120,6 +122,12 @@ aboutReadMore.addEventListener('click', () => {
         item.classList.add('fade-block');
       }
     });
+
+    methodUl.forEach(item => {
+      if(isElementInViewport(item, true)) {
+        item.classList.add('fade-block')
+      }
+    })
 
 
     for (let i = 0; i < items.length; i++) {
