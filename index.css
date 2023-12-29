@@ -64,7 +64,7 @@ img {
 @keyframes fadeBlock {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-10px);
   }
   100% {
     opacity: 1;
@@ -1237,6 +1237,103 @@ img {
   margin: 0;
   padding: 0;
   text-shadow: 1px 1px 1px #000;
+}
+
+#gallery {
+  background-color: #f9fafa;
+}
+
+.gallery-header {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.gallery-header h2 {
+  margin: 0;
+  color: #116173;
+  font-size: clamp(3rem, 10vw, 6rem);
+}
+
+.img-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 43.75rem) {
+  .img-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.img-container div img {
+  top: 15px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  border: 1rem solid #116173;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.img-container div img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+@media (max-width: 43.75rem) {
+  .img-container div img {
+    border: 0.2rem solid #116173;
+  }
+}
+
+.img-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4431372549);
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  max-width: 1190px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.bxs-x-circle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: clamp(2rem, 10vw, 4rem);
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+.bxs-x-circle:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.bxs-left-arrow,
+.bxs-right-arrow {
+  font-size: clamp(2rem, 10vw, 4rem);
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+.bxs-left-arrow:hover,
+.bxs-right-arrow:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.select-img {
+  width: 100%;
+  max-width: 500px;
 }
 
 iframe {

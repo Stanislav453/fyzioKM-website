@@ -42,6 +42,7 @@ let methodUlList = document.querySelectorAll('.method-ul li');
 let methodUl = document.querySelectorAll('.method-ul');
 let methodCount = document.querySelector('.method-count');
 let animationMethodCountExecuted = false;
+let galleryImg = document.querySelectorAll('.img-container > div > img');
 
 const animationMethodCount = () => {
   const interval = setInterval(() => {
@@ -91,7 +92,6 @@ const counters = document.querySelectorAll('.value'),
     }
   };
 
-// attach the counters to the observer
 counters.forEach((c) => observer.observe(c));
 
 ////////////////////////CODE
@@ -169,6 +169,14 @@ aboutReadMore.addEventListener('click', () => {
         serviceContLeftUlLi[i].classList.add('fade-bottom');
       }
     }
+
+        for (let i = 0; i < galleryImg.length; i++) {
+          if (isElementInViewport(galleryImg[i], true)) {
+            galleryImg[i].classList.add('fade-block');
+          }
+        }
+
+
   }
 
   window.addEventListener('load', callbackFunc);
@@ -209,12 +217,56 @@ serviceLiHeaderRight.forEach((item, buttonId) =>
   })
 );
 
+// ====== GALLERY ============================
+
+galleryImg.forEach((item, key) => {
+  item.addEventListener('click', function () {
+    let imgCount = key;
+    let imgModal = document.createElement('div');
+    let imgSrc = document.createElement('img');
+    let modalContainer = document.createElement('div');
+    let imgContainer = document.createElement('div');
+    let closeBtn = document.createElement('i');
+    let arrowRight = document.createElement('i');
+    let arrowLeft = document.createElement('i');
+    closeBtn.setAttribute('class', 'bx bxs-x-circle');
+    arrowRight.setAttribute('class', 'bx bxs-right-arrow');
+    arrowLeft.setAttribute('class', 'bx bxs-left-arrow');
+    imgModal.classList.add('img-modal');
+    imgContainer.classList.add('select-img');
+    modalContainer.classList.add('photo-container');
+    document.body.appendChild(imgModal);
+    imgModal.append(modalContainer, closeBtn);
+    modalContainer.append(arrowLeft, imgContainer, arrowRight);
+    imgContainer.append(imgSrc);
+
+    closeBtn.addEventListener('click', function () {
+      imgModal.remove();
+    });
+
+    arrowRight.addEventListener('click', function () {
+      imgCount = (imgCount + 1) % galleryImg.length; 
+      updateImg();
+    });
+
+  
+
+    arrowLeft.addEventListener('click', function () {
+      imgCount = (imgCount - 1 + galleryImg.length) % galleryImg.length; 
+      updateImg();
+    });
+
+    const updateImg = () => {
+      imgSrc.setAttribute('src', galleryImg[imgCount].src);
+    };
+
+    updateImg()
+  });
+});
+
 // == BACK TO HOME BUTTON ===================================
 
 let backToHome = document.querySelector('.back_to_home');
-let backToHomeI = document.querySelector('.back_to_home i');
-
-console.log(backToHomeI);
 
 window.addEventListener('scroll', function () {
   let scroll = this.window.scrollY;
